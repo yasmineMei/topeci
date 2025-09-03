@@ -1,0 +1,278 @@
+/* app/globals.css */
+
+/* Palette inspirée du mockup */
+:root{
+  --beige: #F6EAD6;
+  --beige-2: #F3E3CB;
+  --text: #1F2A37;
+  --muted: #5F6B7A;
+
+  --green: #6BB36B;   /* bouton "Acheter maintenant" & bannière verte */
+  --green-dark: #559C55;
+  --orange: #F07A2B;  /* CTA "Découvrir nos livres" */
+  --orange-dark: #D76920;
+  --blue: #2F6B9A;    /* boutons cartes */
+  --blue-dark: #235579;
+
+  --white: #fff;
+  --card: #FAF3E6;
+  --footer: #EADDC6;
+}
+
+*{ box-sizing: border-box; }
+html, body { padding:0; margin:0; }
+body{
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+  color: var(--text);
+  background: var(--beige);
+  line-height: 1.4;
+}
+
+/* Layout helpers */
+.container{
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+.section{
+  padding: 56px 0;
+}
+.section-title{
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: -0.3px;
+  margin: 0 0 24px;
+}
+
+/* Header */
+.site-header{
+  background: var(--beige-2);
+  position: sticky; top:0; z-index: 40;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+.header-row{
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 16px;
+  height: 64px;
+}
+.logo{
+  font-weight: 900;
+  font-size: 22px;
+  color: #0C5FA7;
+  text-decoration: none;
+  letter-spacing: 0.5px;
+}
+.nav{
+  display: flex; gap: 18px; justify-content: center; align-items: center;
+}
+.nav-link{
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 600;
+  padding: 8px 10px;
+  border-radius: 8px;
+}
+.nav-link.active, .nav-link:hover{
+  background: rgba(0,0,0,0.06);
+}
+.actions{ display:flex; align-items:center; }
+
+/* Buttons */
+.btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  text-decoration: none;
+  padding: 12px 16px;
+  border-radius: 12px;
+  transition: transform .05s ease, background .2s ease;
+  border: 2px solid transparent;
+}
+.btn:active{ transform: translateY(1px); }
+
+.btn-green{ background: var(--green); color: var(--white); }
+.btn-green:hover{ background: var(--green-dark); }
+
+.btn-orange{ background: var(--orange); color: var(--white); }
+.btn-orange:hover{ background: var(--orange-dark); }
+
+.btn-blue{ background: var(--blue); color: var(--white); }
+.btn-blue:hover{ background: var(--blue-dark); }
+
+.btn-outline{
+  background: transparent;
+  color: var(--text);
+  border-color: var(--text);
+}
+.btn-outline:hover{ background: rgba(0,0,0,0.07); }
+
+.btn-white{
+  background: var(--white);
+  color: var(--text);
+}
+.btn-white:hover{ background: #f4f4f4; }
+
+/* HERO */
+.hero{
+  background: var(--beige);
+  padding: 48px 0 24px;
+}
+.hero-grid{
+  display: grid;
+  grid-template-columns: 1.05fr .95fr;
+  gap: 24px;
+  align-items: center;
+}
+@media (max-width: 960px){
+  .hero-grid{ grid-template-columns: 1fr; }
+}
+.hero-text h1{
+  font-size: 44px;
+  line-height: 1.1;
+  margin: 0 0 12px;
+  font-weight: 900;
+  color: #0C5FA7; /* bleu du titre */
+}
+.hero-bullets{
+  margin: 0 0 20px 0;
+  padding: 0 0 0 20px;
+  color: var(--text);
+}
+.hero-bullets li{ margin-bottom: 8px; }
+.hero-img{
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+/* Cards Boutique */
+.cards{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+@media (max-width: 960px){
+  .cards{ grid-template-columns: 1fr; }
+}
+.card{
+  background: var(--card);
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 16px;
+  overflow: hidden;
+  display:flex; flex-direction: column;
+}
+.card-img{ width: 100%; height: auto; display:block; }
+.card-body{
+  padding: 16px;
+  display:flex; flex-direction: column; gap: 8px;
+}
+.card-title{ font-size: 18px; font-weight: 800; margin: 0; }
+.card-sub{
+  color: #0C5FA7;
+  font-weight: 800;
+  letter-spacing: .3px;
+}
+.card-price{ font-weight: 900; margin-top: 4px; }
+
+/* Vidéo + Témoignages */
+.media-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+@media (max-width: 960px){
+  .media-grid{ grid-template-columns: 1fr; }
+}
+.video-card{
+  background: #A66A45; /* brun doux du bloc vidéo */
+  border-radius: 16px;
+  padding: 18px;
+  color: var(--white);
+}
+.video-thumb{
+  background: rgba(0,0,0,0.25);
+  border-radius: 12px;
+  height: 220px;
+  display:flex; align-items:center; justify-content:center;
+  margin-bottom: 12px;
+}
+.play-btn{
+  font-size: 28px;
+  background: var(--white);
+  color: #A66A45;
+  width: 56px; height: 56px; border-radius: 50%;
+  border: none; cursor: pointer;
+}
+.note{ margin: 10px 0 12px; }
+.note .spark{ font-size: 18px; margin-right: 6px; }
+
+.quotes blockquote{
+  background: rgba(255,255,255,0.6);
+  border-left: 4px solid var(--orange);
+  padding: 12px 14px;
+  border-radius: 8px;
+  margin: 0 0 12px;
+  font-style: italic;
+}
+.perks{
+  margin: 14px 0 0; padding: 0; list-style: none;
+}
+.perks li{ margin-bottom: 8px; }
+
+/* Bannière verte */
+.green-banner{
+  background: var(--green);
+  color: var(--white);
+  border-radius: 16px;
+  padding: 22px;
+  display: grid; gap: 8px;
+  align-items: center;
+  grid-template-columns: 1fr auto;
+}
+.green-banner .gb-title{
+  font-weight: 900; font-size: 18px; margin: 0;
+}
+.green-banner .gb-text{
+  opacity: 0.95;
+}
+@media (max-width: 720px){
+  .green-banner{ grid-template-columns: 1fr; gap: 12px; }
+}
+
+/* Footer */
+.site-footer{
+  background: var(--footer);
+  margin-top: 24px;
+  border-top: 1px solid rgba(0,0,0,0.06);
+}
+.f-grid{
+  display: grid;
+  grid-template-columns: 1.2fr .8fr .8fr;
+  gap: 24px;
+  padding: 28px 0;
+}
+@media (max-width: 960px){
+  .f-grid{ grid-template-columns: 1fr; }
+}
+.f-brand{
+  font-weight: 900; font-size: 20px; color: #0C5FA7;
+  margin-bottom: 6px;
+}
+.f-text{ margin: 0; color: var(--muted); }
+.f-title{ font-weight: 800; margin-bottom: 8px; }
+.f-list{ margin: 0; padding: 0; list-style: none; }
+.f-list li{ margin-bottom: 6px; }
+.f-list a{ color: var(--text); text-decoration: none; }
+.f-list a:hover{ text-decoration: underline; }
+
+.f-bottom{
+  border-top: 1px dashed rgba(0,0,0,0.15);
+  padding: 14px 0 24px;
+  display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+  color: var(--muted);
+}
